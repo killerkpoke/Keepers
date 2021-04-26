@@ -1,0 +1,18 @@
+/*.has-fixed-sidenav .navbar-fixed nav.navbar {
+    width: calc(100% - 300px);
+    left: 300px;
+}
+.navbar-fixed nav.navbar {
+    width: 100%;
+    left: 0;
+}
+nav.navbar {
+    z-index: 10;
+    transition: box-shadow .3s, background-color .3s;
+    padding: 0 20px;
+    background-color: #fff;
+    color: rgba(0,0,0,0.87);
+}
+.navbar-fixed nav {
+    position: fixed;
+}*/

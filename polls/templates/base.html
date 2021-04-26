@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kpoke's Keepers</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <ul id="nav-mobile" class="sidenav sidenav-fixed center">
+            <li class="home">
+                <a href="#" class="logo-container waves-effect">
+                    Kpoke's Keeper
+                    <i class="material-icons left">home</i>
+                </a>
+            </li>
+            <li class="search">
+                <div class="search-wrapper">
+                    <div class="container">
+                        <input placeholder="Search">
+                    </div>
+                </div>
+            </li>
+             <li><div class="divider"></div></li>
+            <li class="about">
+                <a href="#"  class="logo-container waves-effect">
+                    About me
+                </a>
+            </li>  
+            <li class="contact">
+                <a href="#"  class="logo-container waves-effect">
+                            Contact me
+                </a>
+            </li>  
+            <li class="drum">
+                <a href="#"  class="logo-container waves-effect">
+                    Drumming
+                </a>
+            </li>
+                
+            <li class="prog">
+                <a href="#"  class="logo-container waves-effect">
+                    Programming
+                </a>
+            </li>
+        </ul>
+    </header>
+    {% block content %}
+
+    {% endblock content %}
+
+</body>
+<footer class="page-footer light-blue">
+    <div class="container">
+        <div class="row">
+            © 2020 Made by Kpoke
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
+
