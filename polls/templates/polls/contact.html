@@ -2,6 +2,7 @@
 
 {% block content %}
 
+    <div class="container">
     <form id="contform" class="col" method="POST" style="padding-top: 70px;">
         {% csrf_token %}
         <div class="row">
@@ -37,5 +38,6 @@
         <i class="material-icons right">send</i>
       </button>
     </form>
+    </div>
   
 {% endblock content%}

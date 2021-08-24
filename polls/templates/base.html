@@ -7,15 +7,17 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>My Portfolio</title>
+        <title>Keeper</title>
     </head>
     <body>
         <div class="navbar-fixed">
             <nav class="nav-extended">
                 <div class="nav-wrapper">
-                    <a href="{% url 'home' %}" id="logo" class="brand-logo  center">My Portfolio Site</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
+                        <li>
+                            <a href="{% url 'home' %}" id="logo" class="flow-text">Kpoke's Keeper</a>
+                        </li>
                         <li><a href="{% url 'about' %}">About me</a></li>
                         <li><a href="{% url 'works' %}">My works</a></li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -25,6 +27,9 @@
         </div>
         
         <ul class="sidenav" id="mobile-demo">
+            <li>
+                <a href="{% url 'home' %}" id="logo" class="flow-text">Kpoke's Keeper</a>
+            </li>
             <li><a href="{% url 'home' %}"><i class="material-icons">home</i>Home</a></li>
             <li><a href="{% url 'about' %}"><i class="material-icons">people</i>About me</a></li>
             <li><a href="{% url 'works' %}"><i class="material-icons">brush</i>My works</a></li>
@@ -48,7 +53,7 @@
         
         <div class="footer-copyright">
           <div class="container">
-            <div style="text-align: center;">© 2020 Made by Kpoke</div>
+            <div style="text-align: center;">© 2020 Made by David Kohalmi aka Kpoke</div>
           </div>
         </div>
       </footer>
