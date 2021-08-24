@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form id="contform" class="col" method="POST" style="padding-top: 70px;">
+        {% csrf_token %}
+        <div class="row">
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="SenderName" name="sender" type="text" class="validate">
+            <label for="SenderName">Your name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input id="email" name="mail" type="email" class="validate">
+            <label for="email">Your email</label>
+            <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+            <i class="material-icons prefix">subject</i>
+            <input id="subject" name="topic" type="text" class="validate">
+            <label for="subject">Subject</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="message" name="mess" class="materialize-textarea" maxlength="300"></textarea>
+            <label for="message">Message</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Send
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  
+{% endblock content%}

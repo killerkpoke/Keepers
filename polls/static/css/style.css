@@ -1,0 +1,22 @@
+
+footer {
+    clear: both;
+    position: relative;
+    height: auto;
+    margin-top:auto; 
+}
+body { 
+  height:100vh; 
+  margin:0; 
+  display:flex; 
+  flex-direction:column;
+
+}
+
+.brand-logo{
+  height: 100%;
+}
+#contform {
+  padding-left: 50px;
+  padding-right: 100px;
+}
