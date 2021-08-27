@@ -7,6 +7,9 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{% static 'js/myjs.js'%}"></script>
         <title>Keeper</title>
     </head>
     <body>
@@ -16,16 +19,20 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
                         <li>
-                            <a href="{% url 'home' %}" id="logo" class="flow-text">Kpoke's Keeper</a>
+                            <a href="{% url 'home' %}" class="logo_link"><img src="{% static 'images/logo_transparent.png'%}" class="logo"></img></a>
                         </li>
-                        <li><a href="{% url 'about' %}">About me</a></li>
-                        <li><a href="{% url 'works' %}">My works</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'about' %}" class="flow-text">About me</a></li>
+                        <li><a class="dropdown-trigger flow-text" href="{% url 'works' %}" data-target="myworks_dropdown">My works<i class="material-icons right">arrow_drop_down</i></a></li>   
+                        <li><a href="{% url 'contact' %}" class="flow-text">Contact</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
-        
+        <ul id="myworks_dropdown" class="dropdown-content">
+            <li><a href="#!" >cat1</a></li>
+            <li><a href="#!">cat2</a></li>
+            <li><a href="#!">cat3</a></li>
+        </ul>
         <ul class="sidenav" id="mobile-demo">
             <li>
                 <a href="{% url 'home' %}" id="logo" class="flow-text">Kpoke's Keeper</a>
@@ -36,35 +43,16 @@
             <li><a href="{% url 'contact' %}"><i class="material-icons">message</i>Contact</a></li>
         
         </ul>
-    <!--
-    About icon - face,folder_shared,person,portrait
 
-
-    My works icon - border_color, brush,card_travel,color_lens,
-    create,image,palette
-    
-    
-    -->  
-    
     {% block content %}
 
     {% endblock content %}
     <footer class="page-footer">
-        
         <div class="footer-copyright">
           <div class="container">
-            <div style="text-align: center;">© 2020 Made by David Kohalmi aka Kpoke</div>
+            <div id="footer-text">© 2020 Made by David Kohalmi aka Kpoke</div>
           </div>
         </div>
       </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script >
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
-        
-
-    </script>
     </body>
 </html>

@@ -1,4 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+    $(".dropdown-trigger").dropdown({
+        hover: true,
+        inDuration: 500,
+        outDuration: 425,
+        coverTrigger: false,
+        alignment: 'right'
+    })
 });

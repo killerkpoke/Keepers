@@ -10,13 +10,63 @@ body {
   margin:0; 
   display:flex; 
   flex-direction:column;
+  font-family: 'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
 
 }
-
-.flow-text{
-  height: 100%;
+p {
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: -0.003em;
+}
+h1 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+#about-me-text{
+  text-align: justify;
 }
 #contform {
   padding-left: 50px;
   padding-right: 100px;
+}
+.logo {
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: -20px;
+  width: 50px; 
+  height: 50px;
+}
+.logo_link {
+  padding: 0px;
+  margin: 0px;
+}
+.dropdown-content{
+  width: max-content !important;
+  height:auto !important;
+}
+.nav-extended {
+  background-color: rgb(37, 72, 107);
+}
+.page-footer {
+  background-color: rgb(37, 72, 107) !important;
+}
+#footer-text {
+  text-align: center;
+}
+.btn {
+  background-color: rgb(6, 59, 105) !important;
+}
+.btn:hover {
+  background-color: rgb(27, 104, 206) !important;
+}
+#info {
+  font-size: 16px;
+  font-weight: bold;
+}
+#info-data {
+  font-size: 16px;
+  font-weight: 300;
 }

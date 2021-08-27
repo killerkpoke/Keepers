@@ -5,10 +5,9 @@
 <div class="row" style="padding-top: 100px;">
   {% for work in final_works %}
   <div class="col s4">
-      <div class="card">
+      <div class="card hoverable">
         <div class="card-image">
           <img class="materialboxed" src="{{ work.1.url }}" alt=""/>
-        
         </div>
         <div class="card-content" style="padding-left: 10px;">        
             {{ work.0 }}
@@ -17,12 +16,5 @@
     </div>
     {% endfor %}
   </div>
-  <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.materialboxed');
-      var instances = M.Materialbox.init(elems);
-    });
-  </script>
 
 {% endblock content%}

@@ -1,12 +1,10 @@
 from django.db import models
-import datetime
-from django.utils import timezone
 from django import forms
 
 class Works(models.Model):
     named = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images', null=True)
+    image = models.ImageField(upload_to='static/images', null=True)
 
     def __str__(self):
         return self.named
