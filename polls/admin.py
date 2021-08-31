@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Works
+from .models import Category, Project
 
-admin.site.register(Works)
+admin.site.register(Category)
+admin.site.register(Project)

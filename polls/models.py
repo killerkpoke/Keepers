@@ -1,13 +1,26 @@
 from django.db import models
 from django import forms
 
-class Works(models.Model):
-    named = models.CharField(max_length=200)
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(unique=True)
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='child', on_delete=models.CASCADE)
+ 
+    def __str__(self):
+        return self.title
+
+class Project(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='static/images', null=True)
+    file = models.FileField(upload_to='static/uploaded')
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
-        return self.named
+        return self.title
+    class Meta:
+        ordering = ('created',)
 
 class ContactForm(forms.Form):
     person_name = forms.CharField(max_length=50)

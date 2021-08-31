@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Works, ContactForm
+from .models import ContactForm
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 def index(request):
@@ -12,15 +12,15 @@ def mywork(request):
 
     final_works = []
 
-    dbworks = Works.objects.all()
+    #dbworks = Works.objects.all()
     
-    for x in dbworks:
-        final_works.append((x.named, x.image))
+    #for x in dbworks:
+    #    final_works.append((x.named, x.image))
 
-    for_frontend = {
-        'final_works': final_works,
-    }
-    return render(request,'polls/mywork.html',for_frontend)
+    #for_frontend = {
+    #    'final_works': final_works,
+    #}
+    return render(request,'polls/mywork.html')#,for_frontend)
 
 def contact(request):
     if request.POST:
