@@ -2,16 +2,18 @@
 
 {% block content %}
 
-<div class="row" style="padding-top: 100px;">
-  {% for work in final_works %}
-  <div class="col s4">
+<div id="cont" class="row">
+  {% for topic in category %}
+  <div class="col s6">
       <div class="card hoverable">
-        <div class="card-image">
-          <img class="materialboxed" src="{{ work.1.url }}" alt=""/>
-        </div>
-        <div class="card-content" style="padding-left: 10px;">        
-            {{ work.0 }}
-         </div>
+        <a href="#">
+          <div class="card-image">
+            <img class="materialboxed" src="{{ topic.image }}" alt="pics"/>
+          </div>
+          <div class="card-content">        
+              {{ topic.title }}
+          </div>
+        </a>
       </div>
     </div>
     {% endfor %}

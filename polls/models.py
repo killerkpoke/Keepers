@@ -3,24 +3,32 @@ from django import forms
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images', null=True)
     slug = models.SlugField(unique=True)
-    parent = models.ForeignKey('self', blank=True, null=True, related_name='child', on_delete=models.CASCADE)
- 
+    
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ('title',)
+        
+    def get_category_list():
+        cat = Category.objects.all()
+        return cat
 
 class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='static/images', null=True)
-    file = models.FileField(upload_to='static/uploaded')
+    image = models.ImageField(upload_to='images', null=True)
+    file = models.FileField(upload_to='uploaded')
     slug = models.SlugField(unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
     class Meta:
-        ordering = ('created',)
+        ordering = ['created']
 
 class ContactForm(forms.Form):
     person_name = forms.CharField(max_length=50)

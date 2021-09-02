@@ -1,28 +1,34 @@
 from django.shortcuts import render, redirect
-from .models import ContactForm
+from .models import Category
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
+
 def index(request):
-    return render(request,'polls/index.html')
+    for_frontend = {
+        'category': Category.get_category_list(),
+    }
+    return render(request,'polls/index.html', for_frontend)
 
 def about(request):
-    return render(request,'polls/about.html')
+    for_frontend = {
+        'category': Category.get_category_list(),
+    }
+    return render(request,'polls/about.html', for_frontend)
 
 def mywork(request):
 
-    final_works = []
+    for_frontend = {
+        'category': Category.get_category_list(),
+    }
+        
 
-    #dbworks = Works.objects.all()
-    
-    #for x in dbworks:
-    #    final_works.append((x.named, x.image))
 
-    #for_frontend = {
-    #    'final_works': final_works,
-    #}
-    return render(request,'polls/mywork.html')#,for_frontend)
+    return render(request,'polls/mywork.html', for_frontend)
 
 def contact(request):
+    for_frontend = {
+        'category': Category.get_category_list(),
+    }
     if request.POST:
         contact_list = []
         request_data = request.POST
@@ -37,4 +43,4 @@ def contact(request):
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         
-    return render(request,'polls/contact.html')
+    return render(request,'polls/contact.html', for_frontend)
