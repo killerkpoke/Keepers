@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from .models import Category
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import Category, Project
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -20,10 +20,26 @@ def mywork(request):
     for_frontend = {
         'category': Category.get_category_list(),
     }
-        
-
-
     return render(request,'polls/mywork.html', for_frontend)
+
+def myproject(request, slug):
+    unique_slug = get_object_or_404(Category, slug = slug)
+    my_projects = Project.objects.all()
+    for_frontend = {
+        'post': unique_slug,
+        'category': Category.get_category_list(),
+        'project': my_projects,
+    }
+
+    return render(request, 'polls/project.html', for_frontend)
+
+def project_detail(request):
+    
+    for_frontend = {
+        'category': Category.get_category_list(),
+    }
+    return render(request, 'polls/project_detail.html', for_frontend)
+
 
 def contact(request):
     for_frontend = {

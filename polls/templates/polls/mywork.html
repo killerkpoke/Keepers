@@ -6,7 +6,7 @@
   {% for topic in category %}
   <div class="col s4 m2">
       <div class="card hoverable">
-        <a href="#">
+        <a href="{{ topic.slug }}">
           
           {% if topic.cat_image %}
             <img class="responsive-img materialboxed" src="{{ topic.cat_image.url }}" alt="pics">

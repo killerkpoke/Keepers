@@ -30,7 +30,7 @@
         </div>
         <ul id="myworks_dropdown" class="dropdown-content">
             {% for item in category %}
-                <li><a id="cat_title"href="#!">{{ item.title }}</a></li>
+                <li><a id="cat_title"href="{{ item.slug }}">{{ item.title }}</a></li>
             {% endfor %}
         </ul>
         <ul class="sidenav" id="mobile-demo">
@@ -41,7 +41,6 @@
             <li><a href="{% url 'polls:about' %}"><i class="material-icons">people</i>About me</a></li>
             <li><a href="{% url 'polls:works' %}"><i class="material-icons">brush</i>My works</a></li>
             <li><a href="{% url 'polls:contact' %}"><i class="material-icons">message</i>Contact</a></li>
-        
         </ul>
 
     {% block content %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from django.urls import reverse
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
@@ -15,6 +16,7 @@ class Category(models.Model):
     def get_category_list():
         cat = Category.objects.all()
         return cat
+    
 
 class Project(models.Model):
     title = models.CharField(max_length=50)
