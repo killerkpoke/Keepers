@@ -75,6 +75,9 @@ h1 {
 .card-content {
   padding-left: 10px !important;
 }
+.card {
+  text-align: center;
+}
 #cont{
   padding-top: 100px;
 }

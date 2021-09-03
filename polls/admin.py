@@ -6,9 +6,9 @@ class CategoryAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title']}),
         ('URL name', {'fields': ['slug']}),
-        ('Upload image', {'fields': ['image']}),
+        ('Upload image', {'fields': ['cat_image']}),
     ]
-    list_display = ('title', 'slug', 'image')
+    list_display = ('title', 'slug', 'cat_image')
     
 
 

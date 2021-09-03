@@ -3,12 +3,12 @@ from django import forms
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images', null=True)
     slug = models.SlugField(unique=True)
-    
+    cat_image = models.ImageField(upload_to='images/', null=True, blank=True)
+
     def __str__(self):
         return self.title
-
+        
     class Meta:
         ordering = ('title',)
         
@@ -20,13 +20,14 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images', null=True)
-    file = models.FileField(upload_to='uploaded')
+    proj_image = models.ImageField(upload_to='images/', null=True)
+    file = models.FileField(upload_to='uploaded/')
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
+        
     class Meta:
         ordering = ['created']
 
