@@ -9,9 +9,9 @@ urlpatterns = [
     path('', views.index),
     path('home/', views.index, name='home'),
     path('about/', views.about, name='about'),
-    path('myWorks/', views.mywork, name='works'),
-    path('myWorks/<slug:slug>/', views.myproject, name='project'),
-    path('myWorks/<slug:slug>/<int:id>', views.project_detail, name='project_detail'),    
+    path('my-stacks/', views.my_stack, name='works'),
+    path('my-stacks/<slug:slug>/', views.my_project, name='project'),
+    path('my-stacks/<slug:slug>/<int:id>', views.project_detail, name='project_detail'),    
     path('contact/', views.contact, name='contact'),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

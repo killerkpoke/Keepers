@@ -2,13 +2,28 @@
 
 {% block content %}
     <div class="row">
-    <h1>{{category.title}}</h1>
-    {% for project in projects %}
-        <div class="col s4 m2">
-
-            <p>asdqwe</p>
+    <h1>{{post}}</h1>
     
+    {% for proj in project %}
+    {% if proj.category == post %}
+        <div class="col">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    {% if proj.proj_image %}
+                        <img class="responsive-img materialboxed" src="{{ proj.proj_image.url }}" alt="picss">
+                    {% endif %}
+                </div>
+                <div class="card-content flow-text"> 
+                    <span class="card-title activator grey-text text-darken-4">{{ proj.title }}<i class="material-icons right">more_vert</i></span>
+                    <a href="{{ proj.slug }}">Details</a>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{ proj.title }}</span>
+                    <p>{{ proj.description }}</p>
+                </div>
+            </div>
         </div>
+    {% endif %}
     {% endfor %}
     </div>
 {% endblock %}

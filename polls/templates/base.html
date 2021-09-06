@@ -22,7 +22,7 @@
                             <a href="{% url 'polls:home' %}" class="logo_link"><img src="{% static 'images/logo_transparent.png'%}" class="logo"></img></a>
                         </li>
                         <li><a href="{% url 'polls:about' %}" class="flow-text">About me</a></li>
-                        <li><a class="dropdown-trigger flow-text" href="{% url 'polls:works' %}" data-target="myworks_dropdown">My works<i class="material-icons right">arrow_drop_down</i></a></li>   
+                        <li><a class="dropdown-trigger flow-text" href="{% url 'polls:works' %}" data-target="myworks_dropdown">My stacks<i class="material-icons right">arrow_drop_down</i></a></li>   
                         <li><a href="{% url 'polls:contact' %}" class="flow-text">Contact</a></li>
                     </ul>
                 </div>
@@ -30,7 +30,7 @@
         </div>
         <ul id="myworks_dropdown" class="dropdown-content">
             {% for item in category %}
-                <li><a id="cat_title"href="{{ item.slug }}">{{ item.title }}</a></li>
+                <li><a id="cat_title"href="{% url 'polls:works' %}{{ item.slug }}">{{ item.title }}</a></li>
             {% endfor %}
         </ul>
         <ul class="sidenav" id="mobile-demo">
@@ -39,7 +39,7 @@
             </li>
             <li><a href="{% url 'polls:home' %}"><i class="material-icons">home</i>Home</a></li>
             <li><a href="{% url 'polls:about' %}"><i class="material-icons">people</i>About me</a></li>
-            <li><a href="{% url 'polls:works' %}"><i class="material-icons">brush</i>My works</a></li>
+            <li><a href="{% url 'polls:works' %}"><i class="material-icons">computer</i>My stacks</a></li>
             <li><a href="{% url 'polls:contact' %}"><i class="material-icons">message</i>Contact</a></li>
         </ul>
 
@@ -49,7 +49,7 @@
     <footer class="page-footer">
         <div class="footer-copyright">
           <div class="container">
-            <div id="footer-text" class="flow-text">© 2020 Made by David Kohalmi</div>
+            <div id="footer-text" class="flow-text">© {% now "Y" %} Made by David Kohalmi</div>
           </div>
         </div>
       </footer>
