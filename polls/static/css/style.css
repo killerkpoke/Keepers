@@ -1,4 +1,4 @@
-
+/* base */
 footer {
     clear: both;
     position: relative;
@@ -23,13 +23,38 @@ h1 {
   letter-spacing: -0.01em;
   text-align: center;
 }
+/* id */
 #about-me-text{
   text-align: justify;
 }
 #contform {
   padding-left: 50px;
   padding-right: 100px;
+  padding-top: 40px !important;
 }
+#footer-text {
+  text-align: center;
+}
+#info {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+#info-data {
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+}
+#cont{
+  padding-top: 100px;
+}
+#cat_title{
+  text-align: center;
+}
+#smm-header {
+  text-align: center;
+}
+/* class */
 .logo {
   padding: 0px;
   margin-top: 0px;
@@ -53,24 +78,14 @@ h1 {
 .page-footer {
   background-color: rgb(37, 72, 107) !important;
 }
-#footer-text {
-  text-align: center;
-}
 .btn {
   background-color: rgb(6, 59, 105) !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  
 }
 .btn:hover {
   background-color: rgb(27, 104, 206) !important;
-}
-#info {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-}
-#info-data {
-  font-size: 16px;
-  font-weight: 300;
-  text-align: left;
 }
 .card-content {
   padding-left: 10px !important;
@@ -78,9 +93,33 @@ h1 {
 .card {
   text-align: justify;
 }
-#cont{
-  padding-top: 100px;
+.header {
+  font-size: 4.7vh;
 }
-#cat_title{
-  text-align: center;
+
+/*media devices*/
+@media only screen and (max-width:600px) {
+  #info-data{
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    width:100px; 
+  }
+  /* 
+    Also(data) atpakolgatni -> Contact-ba
+    stukturat atgondolni -> legyen egyszeruen reszponziv mobilon is
+  */
+  
+  .header {
+    padding-top: 50px;
+  }
+}
+@media only screen and (max-width:350px) {
+  #smm-header {
+    padding-top: 40px;
+  }
+  #contform {
+    padding-top: 10px !important;
+  }
+  
 }

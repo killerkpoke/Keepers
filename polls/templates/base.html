@@ -42,6 +42,19 @@
             <li><a href="{% url 'polls:works' %}"><i class="material-icons">computer</i>My stacks</a></li>
             <li><a href="{% url 'polls:contact' %}"><i class="material-icons">message</i>Contact</a></li>
         </ul>
+        <div class="container center">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     {% block content %}
 
