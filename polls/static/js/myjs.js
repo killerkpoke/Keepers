@@ -16,6 +16,7 @@ $(document).ready(function(){
         success: function(response){
             setTimeout(()=>{
                 spinner.classList.add('not-visible');
+                databox.classList.remove('not-visible');
                 databox.classList.add('show-visible');
             }, 600)
         },

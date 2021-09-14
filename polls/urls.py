@@ -11,7 +11,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('my-stacks/', views.my_stack, name='works'),
     path('my-stacks/<slug:slug>/', views.my_project, name='project'),
-    path('my-stacks/<slug:slug>/<int:id>', views.project_detail, name='project_detail'),    
+    path('my-stacks/<slug:slug>/<slug:project_slug>/', views.project_detail, name='project_detail'),    
     path('contact/', views.contact, name='contact'),
     path('post-json/', views.post_json, name='post-json'),
     

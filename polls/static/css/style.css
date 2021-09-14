@@ -60,6 +60,10 @@ h1 {
   max-width: 55px;
   max-height: 55px;
 }
+#no-project-error {
+  text-align: center;
+  color: red;
+}
 /* class */
 .logo {
   padding: 0px;

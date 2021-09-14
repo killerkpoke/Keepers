@@ -23,11 +23,20 @@ def my_stack(request):
 
 def my_project(request, slug):
     unique_slug = get_object_or_404(Category, slug = slug)
-    my_projects = Project.objects.all()
+    my_projects = Project.objects.all()   
+
+    def get_project(a, b):
+     for item in a:
+        if(b == item.category):
+            return item
+    # Check that a category has projects in it
+    check_cat = get_project(my_projects, unique_slug)
+
     for_frontend = {
         'post': unique_slug,
         'category': Category.get_category_list(),
         'project': my_projects,
+        'check': check_cat,
     }
 
     return render(request, 'polls/project.html', for_frontend)
