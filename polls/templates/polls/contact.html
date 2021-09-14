@@ -5,23 +5,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col s6">
+    <div class="col s12">
       <ul id="info">
-        <li><i class="material-icons">email</i><span>balazs.david.kohalmi@gmail.com</span></li>
-        <li><i class="material-icons">call</i><span>+36-20-2905176</span></li>
+        <li><i class="small material-icons">email</i></li>
+        <li><span class="flow-text">balazs.david.kohalmi@gmail.com</span></li>
+        <li><i class="small material-icons">call</i></li>
+        <li><span class="flow-text">+36-20-2905176</span></li>
         <li>
           <a target="_blank" href="https://github.com/killerkpoke">
-            <img src="{% static 'images/GitHub-Mark.png'%}" alt="github"></img>
+            <img id="link-img" src="{% static 'images/GitHub-Mark.png'%}" alt="github"></img>
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/balazs-david-kohalmi-98031416a/">
-            <img src="{% static 'images/Li-In-Bug.png'%}" alt="linkedin"></img>
+            <img id="link-img" src="{% static 'images/Li-In-Bug.png'%}" alt="linkedin"></img>
           </a>
         </li>
       </ul>   
     </div>
   </div>
 </div>
+
 <div class="container">
+<div class="divider"></div>
 <h4 id="smm-header">Send me a message!</h4>
 
 <form id="contform" class="col" method="POST" style="padding-top: 70px;">

@@ -13,5 +13,7 @@ urlpatterns = [
     path('my-stacks/<slug:slug>/', views.my_project, name='project'),
     path('my-stacks/<slug:slug>/<int:id>', views.project_detail, name='project_detail'),    
     path('contact/', views.contact, name='contact'),
+    path('post-json/', views.post_json, name='post-json'),
+    
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

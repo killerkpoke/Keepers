@@ -30,7 +30,7 @@ h1 {
 #contform {
   padding-left: 50px;
   padding-right: 100px;
-  padding-top: 40px !important;
+  padding-top: 10px !important;
 }
 #footer-text {
   text-align: center;
@@ -38,7 +38,8 @@ h1 {
 #info {
   font-size: 16px;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  margin-top: 100px;
 }
 #info-data {
   font-size: 16px;
@@ -53,6 +54,11 @@ h1 {
 }
 #smm-header {
   text-align: center;
+  margin-top: 12.76px;
+}
+#link-img {
+  max-width: 55px;
+  max-height: 55px;
 }
 /* class */
 .logo {
@@ -95,6 +101,12 @@ h1 {
 }
 .header {
   font-size: 4.7vh;
+}
+.not-visible{
+  display: none;
+}
+.show-visible {
+  display: block;
 }
 
 /*media devices*/

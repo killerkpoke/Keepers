@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Category, Project
 from django.core.mail import BadHeaderError, send_mail
+from django.http import JsonResponse
 def index(request):
     for_frontend = {
         'category': Category.get_category_list(),
@@ -58,3 +59,8 @@ def contact(request):
             return HttpResponse('Invalid header found.')
         
     return render(request,'polls/contact.html', for_frontend)
+
+def post_json(request):
+    data = list(Category.objects.values())
+    return JsonResponse(data, safe=False)
+

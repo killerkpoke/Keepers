@@ -7,4 +7,24 @@ $(document).ready(function(){
         coverTrigger: false,
         alignment: 'right'
     })
+    const spinner = document.querySelector('#spinner-box');
+    const databox = document.querySelector('#data-box');
+
+    $.ajax({
+        type:'GET',
+        url:'/post-json/',
+        success: function(response){
+            setTimeout(()=>{
+                spinner.classList.add('not-visible');
+                databox.classList.add('show-visible');
+            }, 600)
+        },
+        error: function(response){
+            setTimeout(()=>{
+                spinner.classList.add('not-visible');
+                databox.innerHTML = '<b>Failed to load, try again later.</b>';
+            }, 600)
+        }
+    })
 });
+
