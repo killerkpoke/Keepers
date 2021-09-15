@@ -105,12 +105,22 @@ h1 {
 }
 .header {
   font-size: 4.7vh;
+  padding-top: 50px;
 }
 .not-visible{
   display: none;
 }
 .show-visible {
   display: block;
+}
+.responsive-iframe {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  bottom: 10%;
+  right: 0;
+  width: 50%;
+  height: 50%;
 }
 
 /*media devices*/
@@ -120,14 +130,6 @@ h1 {
     white-space:nowrap; 
     text-overflow:ellipsis; 
     width:100px; 
-  }
-  /* 
-    Also(data) atpakolgatni -> Contact-ba
-    stukturat atgondolni -> legyen egyszeruen reszponziv mobilon is
-  */
-  
-  .header {
-    padding-top: 50px;
   }
 }
 @media only screen and (max-width:350px) {

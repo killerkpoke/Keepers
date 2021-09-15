@@ -21,14 +21,15 @@ def my_stack(request):
     }
     return render(request,'polls/mywork.html', for_frontend)
 
-def my_project(request, slug):
-    unique_slug = get_object_or_404(Category, slug = slug)
+def my_project(request, category_slug):
+    unique_slug = get_object_or_404(Category, slug = category_slug)
     my_projects = Project.objects.all()   
 
     def get_project(a, b):
      for item in a:
         if(b == item.category):
             return item
+            
     # Check that a category has projects in it
     check_cat = get_project(my_projects, unique_slug)
 
@@ -38,12 +39,14 @@ def my_project(request, slug):
         'project': my_projects,
         'check': check_cat,
     }
-
+    
     return render(request, 'polls/project.html', for_frontend)
 
-def project_detail(request):
-    
+def project_detail(request, category_slug, project_slug):
+    project = Project.objects.get(slug=project_slug)
+    print(project)
     for_frontend = {
+        'project': project,
         'category': Category.get_category_list(),
     }
     return render(request, 'polls/project_detail.html', for_frontend)

@@ -21,7 +21,9 @@ class Project(models.Model):
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
     proj_image = models.ImageField(upload_to='images/', null=True)
-    file = models.FileField(upload_to='uploaded/')
+    proj_link = models.URLField()
+    proj_embed_link = models.URLField()
+    proj_playable_link = models.URLField(null=True, blank=True)
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
