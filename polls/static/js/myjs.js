@@ -28,4 +28,17 @@ $(document).ready(function(){
         }
     })
 });
+document.addEventListener( 'DOMContentLoaded', function () {
+	var splide = new Splide( '.splide', {
+        type: 'fade',
+        perPage: 1,
+        autoplay: true,
+        rewind: true,
+        cover: true,
+		heightRatio: 1,
+        pagination : true,
+        pauseOnHover: false,
+    } );
+        splide.mount();
+} );
 

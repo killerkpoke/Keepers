@@ -3,8 +3,9 @@
 {% block content %}
 
 <div id="cont" class="row">
+  <div class="center">
   {% for topic in category %}
-  <div class="col s4 m2">
+  <div class="col s4 m3 l2">
       <div class="card hoverable">
         <a href="{{ topic.slug }}">
           
@@ -20,6 +21,7 @@
       </div>
     </div>
     {% endfor %}
+    </div>
   </div>
 
 {% endblock content%}
