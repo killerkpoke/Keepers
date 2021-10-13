@@ -11,12 +11,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-        <script src="{% static 'js/myjs.js'%}"></script>
-        
+        <script src="{% static 'js/myjs.js'%}"></script>       
         <title>Kpoke's Keeper</title>
-        
     </head>
     <body>
+      
         <div class="navbar-fixed">
             <nav class="nav-extended">
                 <div class="nav-wrapper">
@@ -34,8 +33,9 @@
         </div>
         <ul id="myworks_dropdown" class="dropdown-content">
             {% for item in category %}
-                <li><a id="cat_title"href="{% url 'polls:works' %}{{ item.slug }}">{{ item.title }}</a></li>
+            <li><a id="cat_title"href="{% url 'polls:works' %}{{ item.slug }}">{{ item.title }}</a></li>
             {% endfor %}
+            
         </ul>
         <ul class="sidenav" id="mobile-demo">
             <li>

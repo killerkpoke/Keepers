@@ -2,6 +2,87 @@
 
 {% block content %}
 
-<h1>This is the index page</h1>
+<div class="container">
+    <h1 class="z-depth-4">Welcome.</h1>
+    <div class="row">
+        <div class="col s12">
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three';
+    import { OrbitControls } from 'https://cdn.skypack.dev/pin/three@v0.133.1-dCIBIz3pnzocx0lNrLHe/mode=imports/unoptimized/examples/jsm/controls/OrbitControls.js';
+    function main() {
+        const canvas = document.querySelector( '#myCanvas' );
+        const renderer = new THREE.WebGLRenderer({canvas, alpha:true});
+        let d = 500;
+       
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize(d, d);
+       
+        //camera setup
+        const fov = 75;
+        const aspect = d/d;  // the canvas default
+        const near = 0.1;
+        const far = 5;
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.z = 2.5;
+        
+        //scene setup
+        const scene = new THREE.Scene();
+
+        //ligth setup
+        const spotLight = new THREE.SpotLight( 0xffffff );
+        spotLight.position.set( 10, 10, 10 );
+        scene.add( spotLight );
+
+        //geometry orb created
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+
+        //texture orb added
+        const texture = new THREE.TextureLoader().load('../static/images/earthmap1k.jpg');
+        const bumMap = new THREE.TextureLoader().load('../static/images/earthbump1k.jpg');
+        const specMap = new THREE.TextureLoader().load('../static/images/earthspec1k.jpg');
+        const spec = new THREE.Color('grey');
+
+        //material orb added
+        const material = new THREE.MeshPhongMaterial({
+            map: texture, 
+            bumpMap: bumMap,
+            bumpScale: 0.05,
+            specularMap: specMap,
+            specular: spec,
+        });
+
+        //geometry orb added
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+        //control added
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enablePan = false;
+        controls.minDistance = 2;
+        controls.maxDistance = 3;
+        controls.rotateSpeed = 0.5;
+        controls.zoomSpeed = 0.3;
+        controls.update();
+
+        function render (time) {
+            time *= 0.001;
+
+            cube.rotation.y += 0.005;
+
+            controls.update();
+            renderer.render( scene, camera );
+            requestAnimationFrame( render );
+        }
+        requestAnimationFrame(render);
+        
+    }
+    main();
+
+</script>
 
 {% endblock content%}

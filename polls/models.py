@@ -1,9 +1,14 @@
 from django.db import models
 from django import forms
 
-
-
 class MultiImage(models.Model):
+    name = models.CharField(max_length=100, default='test')
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('name',)
+
     def default(self):
         return self.images.filter(default=True).first()
     def thumbnails(self):
@@ -11,17 +16,18 @@ class MultiImage(models.Model):
 
 class ImageProject(models.Model):
     name = models.CharField(max_length=100)
-    project = models.ForeignKey(MultiImage, on_delete=models.CASCADE)
-    img =  models.ImageField(upload_to='images/', null=True)
+    img =  models.ImageField(upload_to='images/')
     default = models.BooleanField(default=False)
     width = models.FloatField(default=100)
     length = models.FloatField(default=100)
+    album = models.ForeignKey(MultiImage, related_name='images',on_delete=models.CASCADE)
 
-class Category(MultiImage):
+class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
     #cat_image = models.ImageField(upload_to='images/', null=True, blank=True)
-
+    cat_album = models.OneToOneField(MultiImage, related_name='codel',on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.title
         
@@ -32,17 +38,18 @@ class Category(MultiImage):
         cat = Category.objects.all()
         return cat
 
-class Project(MultiImage):
+class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
     #proj_image = models.ImageField(upload_to='images/', null=True)
-    proj_link = models.URLField()
-    proj_embed_link = models.URLField()
-    proj_playable_link = models.URLField(null=True, blank=True)
+    proj_link = models.URLField()  # needed for itchio widget
+    proj_embed_link = models.URLField()  # needed for itchio widget
+    proj_playable_link = models.URLField(null=True, blank=True)  # webGL playable version of itchio widget
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
+    proj_album = models.OneToOneField(MultiImage, related_name='podel',on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.title
         
