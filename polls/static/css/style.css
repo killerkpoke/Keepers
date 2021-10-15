@@ -83,6 +83,9 @@ h1 {
   display: block;
   margin: 0px auto;
 }
+#cv-link {
+  color: azure;
+}
 /* class */
 .logo {
   padding: 0px;

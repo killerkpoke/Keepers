@@ -25,7 +25,6 @@ class ImageProject(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
-    #cat_image = models.ImageField(upload_to='images/', null=True, blank=True)
     cat_album = models.OneToOneField(MultiImage, related_name='codel',on_delete=models.CASCADE)
     
     def __str__(self):
@@ -42,7 +41,6 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
-    #proj_image = models.ImageField(upload_to='images/', null=True)
     proj_link = models.URLField()  # needed for itchio widget
     proj_embed_link = models.URLField()  # needed for itchio widget
     proj_playable_link = models.URLField(null=True, blank=True)  # webGL playable version of itchio widget
@@ -62,5 +60,25 @@ class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
-    
-    
+
+class DocTag(models.Model):
+    name = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
+
+class UploadDocument(models.Model):
+    name = models.CharField(max_length=50)
+    created = models.DateTimeField(auto_now=True)
+    tag = models.ForeignKey(DocTag, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='pdfs/')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
+    def get_cv():
+        cv = UploadDocument.objects.get(name="CV").file
+        return cv

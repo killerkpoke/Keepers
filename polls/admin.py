@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Project, MultiImage, ImageProject
+from .models import Category, Project, MultiImage, ImageProject, DocTag, UploadDocument
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -9,12 +9,21 @@ class CategoryAdmin(admin.ModelAdmin):
         ('Image album', {'fields': ['cat_album']}),
     ]
     list_display = ('title', 'slug', 'cat_album')
-    
+
+class UploadDocumentAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['name']}),
+        ('Choose a Tag', {'fields': ['tag']}),
+        ('Choose a file to upload', {'fields': ['file']}),
+    ]
+    list_display = ('name', 'tag', 'file', 'created')
 
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project)
 admin.site.register(ImageProject)
 admin.site.register(MultiImage)
+admin.site.register(DocTag)
+admin.site.register(UploadDocument, UploadDocumentAdmin)
 
 
