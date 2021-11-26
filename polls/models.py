@@ -11,8 +11,10 @@ class MultiImage(models.Model):
 
     def default(self):
         return self.images.filter(default=True).first()
+    def project_thumbnail(self):
+        return self.images.filter(default=False).first()
     def thumbnails(self):
-        return self.images.filter(width__lt=100, length_lt=100)
+        return self.images.filter(default=False).all()
 
 class ImageProject(models.Model):
     name = models.CharField(max_length=100)
@@ -41,8 +43,8 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now=True)
-    proj_link = models.URLField()  # needed for itchio widget
-    proj_embed_link = models.URLField()  # needed for itchio widget
+    proj_link = models.URLField(null=True, blank=True)  # needed for itchio widget
+    proj_embed_link = models.URLField(null=True, blank=True)  # needed for itchio widget
     proj_playable_link = models.URLField(null=True, blank=True)  # webGL playable version of itchio widget
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

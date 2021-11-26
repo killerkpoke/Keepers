@@ -4,23 +4,19 @@
     <div class="container">
         <div class="row">
             <h1 class="header">{{ project.title }}</h1>
-            <div class="col s12">
+            <div class="col s12 center">
                 <p class="flow-text">{{ project.description }}</p>
-            </div>
-            <div class="col s6 center">
+            
+            <div class="col s12">
                 <div class="splide">
                     <div class="splide__track">
-                        <div class="splide__list ">
-                            <div class="splide__slide">
-                                <img class="responsive-img" src="{{project.proj_image.url}}">
-                            </div>
-                            <div class="splide__slide">
-                                <img class="responsive-img" src="{{project.proj_image.url}}">
-                            </div>
-                            <div class="splide__slide">
-                                <img class="responsive-img" src="{{project.proj_image.url}}">
-                            </div>
-                        </div>
+                        <ul class="splide__list ">
+                            {% for image in project.proj_album.thumbnails %}
+                                <li class="splide__slide center">
+                                    <img src="{{ image.img.url }}">
+                                </li>
+                            {% endfor %}               
+                        </ul>
                     </div>
                     <div class="splide__progress">
                         <div class="splide__progress__bar">
@@ -28,9 +24,11 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
         <div class="divider"></div>
         <br>
+        {% if project.proj_link %}
         <div class="row">
             <div class="col s12">
                 <div class="video-container">
@@ -45,6 +43,7 @@
             </div>
             {% endif %}
         </div>
+        {% endif %}
         
     </div>
     

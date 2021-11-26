@@ -6,19 +6,19 @@
         {% if check %}
             {% for proj in project %}
                 {% if proj.category == post %}
-                    <div class="col s12 m6 l4 xl3">
+                    <div class="col s12 m6 l4 xl2">
                         <div class="card hoverable">
                             <div class="card-image waves-effect waves-block waves-light">
-                                {% if proj.proj_image %}
+                                {% if proj.proj_album %}
                                     <a href="{{ proj.slug }}">
-                                        <img class="responsive-img materialboxed" src="{{ proj.proj_image.url }}" alt="picss">
+                                        <img class="responsive-img materialboxed" src="{{ proj.proj_album.project_thumbnail.img.url }}" alt="picss">
                                     </a>
                                 {% endif %}
                             </div>
                             
-                            <div class="card-reveal">
+                            <div class="card-reveal flow-text">
                                 <span class="card-title grey-text text-darken-4">{{ proj.title }}</span>
-                                <p>{{ proj.description }}</p>
+                                <p style="color:#26a69a;">{{ proj.description }}</p>
                             </div>
                             <div class="card-content flow-text"> 
                                 <span class="card-title activator grey-text text-darken-4">{{ proj.title }}<i class="material-icons right">more_vert</i></span>

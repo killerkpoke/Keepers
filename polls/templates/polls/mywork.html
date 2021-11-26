@@ -5,12 +5,12 @@
 <div id="cont" class="row">
   <div class="center">
   {% for topic in category %}
-  <div class="col s4 m3 l2">
+  <div class="col s6 m3 l2 xl1">
       <div class="card hoverable">
         <a href="{{ topic.slug }}">
           
-          {% if topic.cat_image %}
-            <img class="responsive-img materialboxed" src="{{ topic.cat_image.url }}" alt="pics">
+          {% if topic.cat_album %}
+            <img class="responsive-img materialboxed" src="{{ topic.cat_album.default.img.url }}" alt="pics">
           {% endif %}
 
           <div class="card-content flow-text">        

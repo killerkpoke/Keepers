@@ -34,10 +34,11 @@ document.addEventListener( 'DOMContentLoaded', function () {
         perPage: 1,
         autoplay: true,
         rewind: true,
-        cover: true,
-		heightRatio: 1,
-        pagination : true,
+        cover: false,
+        pagination: true,
+        pauseOnFocus: false,
         pauseOnHover: false,
+        height: '30rem',
     } );
         splide.mount();
 } );
