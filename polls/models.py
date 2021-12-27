@@ -20,9 +20,15 @@ class ImageProject(models.Model):
     name = models.CharField(max_length=100)
     img =  models.ImageField(upload_to='images/')
     default = models.BooleanField(default=False)
-    width = models.FloatField(default=100)
-    length = models.FloatField(default=100)
+    width = models.FloatField(default=100)  # not needed
+    length = models.FloatField(default=100)  # not needed
     album = models.ForeignKey(MultiImage, related_name='images',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        ordering = ('name',)
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
@@ -54,7 +60,7 @@ class Project(models.Model):
         return self.title
         
     class Meta:
-        ordering = ['created']
+        ordering = ('created',)
 
 
 class ContactForm(forms.Form):
@@ -79,8 +85,13 @@ class UploadDocument(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name',)
 
     def get_cv():
         cv = UploadDocument.objects.get(name="CV").file
         return cv
+
+class About_detail(models.Model):
+    greeting = models.TextField(max_length=300)
+    detail = models.TextField(max_length=500)
+    img = models.ImageField(upload_to='images/')

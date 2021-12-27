@@ -36,7 +36,7 @@
         </div>
         <ul id="myworks_dropdown" class="dropdown-content">
             {% for item in category %}
-            <li><a id="cat_title"href="{% url 'polls:works' %}{{ item.slug }}">{{ item.title }}</a></li>
+                <li><a id="cat_title"href="{% url 'polls:works' %}{{ item.slug }}">{{ item.title }}</a></li>
             {% endfor %}
             
         </ul>

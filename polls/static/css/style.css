@@ -95,6 +95,12 @@ h1 {
   text-align: center;
   z-index: 1;
 }
+#greetingId {
+  padding-top: 5rem;
+}
+#picsofme{
+  max-width: 70%;
+}
 
 /* class */
 .logo {

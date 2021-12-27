@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Category, Project, UploadDocument
+from .models import About_detail, Category, Project, UploadDocument
 from django.core.mail import BadHeaderError, send_mail
 from django.http import JsonResponse
 def index(request):
@@ -9,7 +9,9 @@ def index(request):
     return render(request,'polls/index.html', for_frontend)
 
 def about(request):
+    ad = About_detail.objects.first()
     for_frontend = {
+        'ad': ad,
         'category': Category.get_category_list(),
         'doc_cv': UploadDocument.get_cv(),
     }

@@ -2,24 +2,21 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="flow-text">Hi, I am David Kohalmi</h1>
-    <div class="row">
-        <div class="col s12">
-                <img src=""></img>
+    <h1 id ="greetingId" class="flow-text">Hi, I am David Kohalmi</h1>
+    <div class="row"> 
+        <div class="col s6">   
+            <img id="picsofme" class="responsive-img" src="{{ ad.img.url }}"></img>
+        </div>
+        <div class="col s6">   
             <p id="about-me-text">
-                Hi! Welcome on my site! I am David Kohalmi.
-                I am a programmer, who likes creating and playing games, make and play music and coding.
-        
+                {{ ad.greeting }}
             </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12"> 
             <p id="about-me-text">
-                Welcome in my site! I am David Kohalmi, aka Kpoke in games and in the virtual world.
-                I am a programmer, who likes creating and playing games, make and play music and coding.
-                Welcome in my site! I am David Kohalmi, aka Kpoke in games and in the virtual world.
-                I am a programmer, who likes creating and playing games, make and play music and coding.
-            Welcome in my site! I am David Kohalmi, aka Kpoke in games and in the virtual world.
-                I am a programmer, who likes creating and playing games, make and play music and coding.
-            Welcome in my site! I am David Kohalmi, aka Kpoke in games and in the virtual world.
-            
+                {{ ad.detail }}
             </p>
         </div>
         <div class="col s12 center">

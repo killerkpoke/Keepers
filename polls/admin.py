@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Project, MultiImage, ImageProject, DocTag, UploadDocument
+from .models import About_detail, Category, Project, MultiImage, ImageProject, DocTag, UploadDocument
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -25,5 +25,6 @@ admin.site.register(ImageProject)
 admin.site.register(MultiImage)
 admin.site.register(DocTag)
 admin.site.register(UploadDocument, UploadDocumentAdmin)
+admin.site.register(About_detail)
 
 
