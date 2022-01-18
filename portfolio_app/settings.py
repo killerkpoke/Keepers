@@ -76,16 +76,13 @@ WSGI_APPLICATION = 'portfolio_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'keeper-db',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://kpoke:BkbLckfx4lNfgW5s@keeper-ceu.r0ikl.mongodb.net/test'
+        }
         
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        #'NAME': 'PostgreSQL 13',
-        #'USER': 'postgres',
-        #'PASSWORD': 'postgres',
-        #'HOST': 'localhost',
-        #'PORT': '',
-    
     }
 }
 

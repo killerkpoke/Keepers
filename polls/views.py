@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import get_object_or_404, render
 from .models import About_detail, Category, Project, UploadDocument
 from django.core.mail import BadHeaderError, send_mail
@@ -71,7 +72,7 @@ def contact(request):
         try:
             send_mail(Pname+" - "+subject, message +"\nFrom : "+from_email, None, [' """your email address which receive others messages """ '], fail_silently=False)
         except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+            return HTTPResponse('Invalid header found.')
         
     return render(request,'polls/contact.html', for_frontend)
 

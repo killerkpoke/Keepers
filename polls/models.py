@@ -1,8 +1,9 @@
-from django.db import models
+#from django.db import models
+from djongo import models
 from django import forms
 
 class MultiImage(models.Model):
-    name = models.CharField(max_length=100, default='test')
+    name = models.CharField(max_length=50, default='test')
     def __str__(self):
         return self.name
 
@@ -92,6 +93,6 @@ class UploadDocument(models.Model):
         return cv
 
 class About_detail(models.Model):
-    greeting = models.TextField(max_length=300)
-    detail = models.TextField(max_length=500)
+    greeting = models.TextField()  # Short introduction
+    detail = models.TextField()  # Motivation letter
     img = models.ImageField(upload_to='images/')

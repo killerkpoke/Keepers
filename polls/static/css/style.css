@@ -99,7 +99,7 @@ h1 {
   padding-top: 5rem;
 }
 #picsofme{
-  max-width: 70%;
+  max-width: 40%;
 }
 
 /* class */
@@ -182,6 +182,9 @@ h1 {
     display: block;
     margin: 0px auto;
   }
+  #picsofme{
+    max-width: 70%;
+  }
 }
 @media only screen and (max-width:350px) {
   #smm-header {
@@ -189,6 +192,9 @@ h1 {
   }
   #contform {
     padding-top: 10px !important;
+  }
+  #picsofme{
+    max-width: 100%;
   }
  
   
