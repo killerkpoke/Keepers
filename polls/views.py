@@ -1,8 +1,11 @@
 from http.client import HTTPResponse
 from django.shortcuts import get_object_or_404, render
 from .models import About_detail, Category, Project, UploadDocument
+from .serializers import CategorySerializer
 from django.core.mail import BadHeaderError, send_mail
-from django.http import JsonResponse
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser
+
 def index(request):
     for_frontend = {
         'category': Category.get_category_list(),
@@ -20,8 +23,10 @@ def about(request):
 
 def my_stack(request):
 
+    cat = Category.get_category_list()
+
     for_frontend = {
-        'category': Category.get_category_list(),
+        'category': cat,
     }
     return render(request,'polls/mywork.html', for_frontend)
 
