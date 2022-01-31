@@ -1,69 +1,75 @@
 from http.client import HTTPResponse
-from django.shortcuts import get_object_or_404, render
-from .models import About_detail, Category, Project, UploadDocument
-from .serializers import CategorySerializer
+from django.shortcuts import render
+from .models import About_detail, Category, Project, ProjectImages, UploadDocument #AImages
 from django.core.mail import BadHeaderError, send_mail
 from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser
 
 def index(request):
+    cat = Category.objects.all()
     for_frontend = {
-        'category': Category.get_category_list(),
+        'category': cat,
     }
     return render(request,'polls/index.html', for_frontend)
 
 def about(request):
     ad = About_detail.objects.first()
+    cat = Category.objects.all()
+    doc = UploadDocument.objects.get(name="CV").file
+
     for_frontend = {
         'ad': ad,
-        'category': Category.get_category_list(),
-        'doc_cv': UploadDocument.get_cv(),
+        'category': cat,
+        'doc_cv': doc,
     }
     return render(request,'polls/about.html', for_frontend)
 
 def my_stack(request):
-
-    cat = Category.get_category_list()
-
+    cat = Category.objects.all()
     for_frontend = {
         'category': cat,
     }
     return render(request,'polls/mywork.html', for_frontend)
 
 def my_project(request, category_slug):
-    unique_slug = get_object_or_404(Category, slug = category_slug)
-    my_projects = Project.objects.all()   
+    cat = Category.objects.all()
+    unique_slug = Category.objects.get(slug = category_slug)
+    my_projects = Project.objects.all()
+    project_images = ProjectImages.objects.first()
 
     def get_project(a, b):
      for item in a:
         if(b == item.category):
             return item
-            
-    # Check that a category has projects in it
+   
     check_cat = get_project(my_projects, unique_slug)
 
     for_frontend = {
         'post': unique_slug,
-        'category': Category.get_category_list(),
+        'category': cat,
         'project': my_projects,
         'check': check_cat,
+        'image': project_images
     }
     
     return render(request, 'polls/project.html', for_frontend)
 
 def project_detail(request, category_slug, project_slug):
     project = Project.objects.get(slug=project_slug)
-    print(project)
+    cat = Category.objects.all()
+    project_images = ProjectImages.objects.filter(project=project)
+
     for_frontend = {
         'project': project,
-        'category': Category.get_category_list(),
+        'category': cat,
+        'project_images': project_images
     }
     return render(request, 'polls/project_detail.html', for_frontend)
 
 
 def contact(request):
+    cat = Category.objects.all()
     for_frontend = {
-        'category': Category.get_category_list(),
+        'category': cat,
     }
     if request.POST:
         contact_list = []
@@ -82,6 +88,7 @@ def contact(request):
     return render(request,'polls/contact.html', for_frontend)
 
 def post_json(request):
-    data = list(Category.objects.values())
-    return JsonResponse(data, safe=False)
+    #  data = list(AImages.objects.values()) + list(Category.objects.values())
+    return render(request,'polls/about.html')
+    #  return JsonResponse(data, safe=False)
 

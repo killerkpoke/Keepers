@@ -5,15 +5,16 @@
         <div class="row">
             <h1 class="header">{{ project.title }}</h1>
             <div class="col s12 center">
-                <p class="flow-text">{{ project.description }}</p>
-            
+                <p class="flow-text">
+                    {{ project.description }}
+                </p>
             <div class="col s12">
                 <div class="splide">
                     <div class="splide__track">
                         <ul class="splide__list ">
-                            {% for image in project.proj_album.thumbnails %}
+                            {% for image in project_images %}
                                 <li class="splide__slide center">
-                                    <img src="{{ image.img.url }}">
+                                    <img src="{{ image.images.url }}">
                                 </li>
                             {% endfor %}               
                         </ul>

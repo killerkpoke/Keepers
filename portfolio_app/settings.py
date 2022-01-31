@@ -77,6 +77,8 @@ WSGI_APPLICATION = 'portfolio_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
