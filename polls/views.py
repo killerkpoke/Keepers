@@ -33,22 +33,27 @@ def my_stack(request):
 def my_project(request, category_slug):
     cat = Category.objects.all()
     unique_slug = Category.objects.get(slug = category_slug)
-    my_projects = Project.objects.all()
-    project_images = ProjectImages.objects.first()
-
+    project = Project.objects.all()
+    
+    #project_type = project.filter(category_id = unique_slug).first()
+    
+    #project_images = ProjectImages.objects.filter(project = project_type)
+    
+    #project_img = project_images.get().images.url
+    
     def get_project(a, b):
      for item in a:
         if(b == item.category):
             return item
    
-    check_cat = get_project(my_projects, unique_slug)
+    check_cat = get_project(project, unique_slug)
 
     for_frontend = {
         'post': unique_slug,
         'category': cat,
-        'project': my_projects,
+        'project': project,
         'check': check_cat,
-        'image': project_images
+        #'image': project_images
     }
     
     return render(request, 'polls/project.html', for_frontend)

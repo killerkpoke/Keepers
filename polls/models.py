@@ -33,6 +33,7 @@ class Project(models.Model):
     proj_embed_link = models.URLField(null=True, blank=True)  # needed for itchio widget
     proj_playable_link = models.URLField(null=True, blank=True)  # webGL playable version of itchio widget
     slug = models.SlugField(unique=True)
+    images = models.ImageField(upload_to='images/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
     def __str__(self):
@@ -47,11 +48,6 @@ class ProjectImages(models.Model):
 
     def __str__(self):
         return self.project.title
-
-    def get_first_image():
-        pass
-    def get_project_images():
-        pass
     
 class ContactForm(forms.Form):
     person_name = forms.CharField(max_length=50)

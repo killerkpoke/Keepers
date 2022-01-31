@@ -30,6 +30,7 @@ class ProjectAdmin(admin.ModelAdmin):
         (None, {"fields": (['proj_playable_link']),}),
         ("Slug field", {"fields": (['slug']),}),
         ("Category type", {"fields": (['category']),}),
+        ("Project icon image ", {"fields": (['images']),}),
         
     )
     inlines = [ImagesInline]
