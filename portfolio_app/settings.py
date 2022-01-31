@@ -82,10 +82,10 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'keeper-db',
+        'NAME': 'db_name',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://kpoke:BkbLckfx4lNfgW5s@keeper-ceu.r0ikl.mongodb.net/test'
+            'host': 'mongodb+srv:/name:pass@cluster_name.id.mongodb.net/test'
         }
         
     }
