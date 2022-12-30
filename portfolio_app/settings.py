@@ -25,7 +25,7 @@ SECRET_KEY = '&i_za+pyopuse__@4g%nf-650(5&_3t9&1e20gac$1bv4eh44t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
