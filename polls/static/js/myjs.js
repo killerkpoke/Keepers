@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown({
         hover: true,
@@ -29,7 +29,7 @@ $(document).ready(function(){
     })
 });
 document.addEventListener( 'DOMContentLoaded', function () {
-	var splide = new Splide( '.splide', {
+	let splide = new Splide( '.splide', {
         type: 'fade',
         perPage: 1,
         autoplay: true,
@@ -39,7 +39,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
         pauseOnFocus: false,
         pauseOnHover: false,
         height: '30rem',
-    } );
-        splide.mount();
+    });
+    splide.mount();
 } );
 

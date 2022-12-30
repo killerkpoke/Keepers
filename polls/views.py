@@ -1,5 +1,5 @@
 from http.client import HTTPResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import About_detail, Category, Project, ProjectImages, UploadDocument #AImages
 from django.core.mail import BadHeaderError, send_mail
 from django.http.response import JsonResponse
@@ -12,16 +12,22 @@ def index(request):
     return render(request,'polls/index.html', for_frontend)
 
 def about(request):
-    ad = About_detail.objects.first()
-    cat = Category.objects.all()
-    doc = UploadDocument.objects.get(name="CV").file
-
-    for_frontend = {
-        'ad': ad,
-        'category': cat,
-        'doc_cv': doc,
-    }
-    return render(request,'polls/about.html', for_frontend)
+    try:
+        ad = About_detail.objects.first()
+        cat = Category.objects.all()
+        doc = UploadDocument.objects.get(name="CV").file
+        for_frontend = {
+            'ad': ad,
+            'category': cat,
+            'doc_cv': doc,
+        }
+        return render(request,'polls/about.html', for_frontend)
+    except FileNotFoundError as e:
+        return error_page(request)
+    except FileExistsError as e:
+        return error_page(request)
+    except Exception as e:
+         return error_page(request)
 
 def my_stack(request):
     cat = Category.objects.all()
@@ -35,12 +41,6 @@ def my_project(request, category_slug):
     unique_slug = Category.objects.get(slug = category_slug)
     project = Project.objects.all()
     
-    #project_type = project.filter(category_id = unique_slug).first()
-    
-    #project_images = ProjectImages.objects.filter(project = project_type)
-    
-    #project_img = project_images.get().images.url
-    
     def get_project(a, b):
      for item in a:
         if(b == item.category):
@@ -53,7 +53,6 @@ def my_project(request, category_slug):
         'category': cat,
         'project': project,
         'check': check_cat,
-        #'image': project_images
     }
     
     return render(request, 'polls/project.html', for_frontend)
@@ -97,3 +96,5 @@ def post_json(request):
     return render(request,'polls/about.html')
     #  return JsonResponse(data, safe=False)
 
+def error_page(request):
+    return render(request, 'polls/error.html')

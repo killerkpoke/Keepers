@@ -1,4 +1,12 @@
 /* base */
+* {
+  --body-bg-color: rgba(12, 52, 112, 0.719);
+  --base-color: azure;
+  --btn: rgb(6, 59, 105);
+  --btn-hover: rgb(27, 104, 206);
+  --nav-footer: rgb(37, 72, 107);
+  --err: red;
+}
 footer {
     clear: both;
     position: relative;
@@ -11,8 +19,9 @@ body {
   display:flex; 
   flex-direction:column;
   font-family: 'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
-  color: azure;
-  background-image: url('../images/space_background.jpg');
+  color: var(--base-color);
+  background-color: var(--body-bg-color);
+  /* background-image: url('../images/space_background.jpg'); */
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -27,7 +36,10 @@ h1 {
   letter-spacing: -0.01em;
   text-align: center;
 }
-/* id */
+/* ids */
+#spinner-box {
+  margin-top: 2rem;
+}
 #about-me-text{
   text-align: justify;
 }
@@ -39,11 +51,15 @@ h1 {
 #footer-text {
   text-align: center;
 }
-#info {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 100px;
+#info li {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  padding: 5px;
+}
+#info li i,
+#info li a {
+  padding: 5px;
 }
 #info-data {
   font-size: 16px;
@@ -63,20 +79,20 @@ h1 {
 #link-github {
   max-width: 60px;
   max-height: 60px;
-  background-color: azure;
+  background-color: var(--base-color);
   border-radius: 20%;
   padding: 10px;
 }
 #link-linkedin {
   max-width: 67px;
   max-height: 67px;
-  background-color: azure;
+  background-color: var(--base-color);
   border-radius: 20%;
   padding: 10px;
 }
 #no-project-error {
   text-align: center;
-  color: red;
+  color: var(--err);
 }
 #myCanvas {
   width: 100%;
@@ -85,7 +101,7 @@ h1 {
   margin: 0px auto;
 }
 #cv-link {
-  color: azure;
+  color: var(--base-color);
 }
 #canvasText {
   position: absolute;
@@ -123,20 +139,20 @@ h1 {
   height:auto !important;
 }
 .nav-extended {
-  background-color: rgb(37, 72, 107);
+  background-color: var(--nav-footer);
 }
 .page-footer {
-  background-color: rgb(37, 72, 107) !important;
+  background-color: var(--nav-footer) !important;
   padding-top: 10px !important;
 }
 .btn {
-  background-color: rgb(6, 59, 105) !important;
+  background-color: var(--btn) !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
   
 }
 .btn:hover {
-  background-color: rgb(27, 104, 206) !important;
+  background-color: var(--btn-hover)  !important;
 }
 .card-content {
   padding-left: 10px !important;
@@ -164,9 +180,8 @@ h1 {
   height: 50%;
 }
 .input-field input, .input-field textarea {
-  color: azure;
+  color: var(--base-color)
 }
-
 
 /*media devices*/
 @media only screen and (max-width:600px) {
@@ -196,6 +211,4 @@ h1 {
   #picsofme{
     max-width: 100%;
   }
- 
-  
 }

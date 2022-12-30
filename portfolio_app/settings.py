@@ -80,17 +80,28 @@ WSGI_APPLICATION = 'portfolio_app.wsgi.application'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'keeper-db',
+    #     'ENFORCE_SCHEMA': False,
+    #     'CLIENT': {
+    #         'host': 'mongodb+srv://kpoke:EwrrRBEP1cJFhyLs@keeper-ceu.r0ikl.mongodb.net/test',
+    #         #kpoke:BkbLckfx4lNfgW5s
+    #     }
+    # },
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'db_name',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb+srv:/name:pass@cluster_name.id.mongodb.net/test'
-        }
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',
+        'HOST': '',
+        'PORT': '',  
     }
 }
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -129,7 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'polls/static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

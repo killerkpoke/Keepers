@@ -2,18 +2,6 @@ from statistics import mode
 from djongo import models
 from django import forms
 
-"""class AImages(models.Model):
-    _id = models.ObjectIdField()
-    name = models.CharField(max_length=50)
-    image =  models.ImageField(upload_to='images/')
-    icon = models.BooleanField(default=False)
-   
-    def __str__(self):
-        return self.name
-    
-    class Meta:
-        ordering = ('name',)
-"""
 class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
@@ -74,6 +62,10 @@ class UploadDocument(models.Model):
         ordering = ('name',)
 
 class About_detail(models.Model):
-    greeting = models.TextField()  # Short introduction
-    detail = models.TextField()  # Motivation letter
+    greeting = models.TextField(null=True, blank=True)  # Short introduction
+    detail = models.TextField(null=True, blank=True)  # Motivation letter
     image = models.ImageField(upload_to='images/')
+    email = models.EmailField(null=True, blank=True)
+    mobile = models.TextField()
+    linkedin = models.TextField(null=True, blank=True) 
+    github = models.TextField(null=True, blank=True)

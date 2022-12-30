@@ -1,11 +1,10 @@
 # Keepers
-Kpoke's Keepers website (portfolio, resume, blog, vlog etc..)
+Kpoke's Keepers website (portfolio site)
 
-- In this website people can see what i did in the past via projects, based on categories
-- If the project is a game and hosted on the web, can play with it as well
-- The person can see the projects design via pictures 
-- A person can send me DM to me
-- Can download my CV and check my short Motivation letter as well
+- In this website the visitors can previouse projects 
+- The visitors can see the projects, read about them, and check pictures about them if available, also if the project is a game and hosted on the web, like itch.io, could play with it as well...
+- The visitors can send me DM to me
+- Visitors can download my CV as well
 
 # Project Core
 The website built on Django backend and base custome frontend with HTML and CSS,

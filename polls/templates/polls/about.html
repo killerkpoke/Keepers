@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="container">
-    <h1 id ="greetingId" class="flow-text">Hi, I am David Kohalmi</h1>
+    <h1 id ="greetingId" class="flow-text">Hello, my name is Kőhalmi Balázs Dávid</h1>
     <div class="row">
         <div class="col s12 center">   
             <p id="about-me-text">
@@ -13,6 +13,28 @@
     <div class="row"> 
         <div class="col s12 center">   
             <img id="picsofme" class="responsive-img" src="{{ ad.image.url }}"></img>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center">
+            <ul id="info">
+                <li>
+                    <i class="small material-icons">email</i>
+                    <span class="flow-text">{{ ad.email }}</span>
+                </li>
+                <li>
+                    <i class="small material-icons">call</i>
+                    <span class="flow-text">{{ ad.mobile }}</span>
+                </li>
+                <li>
+                    <a target="_blank" href="{{ ad.github }}">
+                        <img id="link-github" src="{% static 'images/GitHub-Mark.png'%}" alt="github"></img>
+                    </a>
+                    <a target="_blank" href="{{ ad.linkedin }}">
+                        <img id="link-linkedin" src="{% static 'images/Li-In-Bug.png'%}" alt="linkedin"></img>
+                    </a>
+                </li>
+            </ul>   
         </div>
     </div>
     <div class="row">

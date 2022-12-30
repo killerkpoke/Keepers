@@ -33,13 +33,13 @@
         <div class="row">
             <div class="col s12">
                 <div class="video-container">
-                    <iframe frameborder="0" src="https://itch.io/embed/574032"><a href="https://kpoke.itch.io/blackhole-of-secrets">BlackHole Of Secrets by Kpoke</a></iframe>
+                    <iframe frameborder="0" src="{{ project.proj_embed_link}}"><a href="{{ project.proj_link }}"></a></iframe>
                 </div>
             </div>
             {% if project.proj_playable_link %}
             <div class="col s12">
                 <div class="video-container">
-                    <iframe frameborder="0" src="https://itch.io/embed-upload/1981226?color=0484d1" allowfullscreen=""><a href="https://kpoke.itch.io/blackhole-of-secrets">Play BlackHole Of Secrets on itch.io</a></iframe>
+                    <iframe frameborder="0" src="{{ project.proj_playable_link}}" allowfullscreen=""><a href="{{ project.proj_link }}"></a></iframe>
                 </div>
             </div>
             {% endif %}
