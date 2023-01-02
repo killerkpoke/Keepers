@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
-from django.shortcuts import redirect, render
-from .models import About_detail, Category, Project, ProjectImages, UploadDocument #AImages
+from django.shortcuts import render
+from .models import About_detail, Category, Project, ProjectImages, UploadDocument
 from django.core.mail import BadHeaderError, send_mail
 from django.http.response import JsonResponse
 

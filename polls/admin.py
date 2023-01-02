@@ -40,7 +40,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
-#admin.site.register(AImages)
 admin.site.register(DocTag)
 admin.site.register(UploadDocument, UploadDocumentAdmin)
 admin.site.register(About_detail)

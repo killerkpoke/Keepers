@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '&i_za+pyopuse__@4g%nf-650(5&_3t9&1e20gac$1bv4eh44t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,6 +80,10 @@ WSGI_APPLICATION = 'portfolio_app.wsgi.application'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',  
+    }
     # 'default': {
     #     'ENGINE': 'djongo',
     #     'NAME': 'keeper-db',
@@ -89,19 +93,14 @@ DATABASES = {
     #         #kpoke:BkbLckfx4lNfgW5s
     #     }
     # },
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sqlite3.db',
-        'HOST': '',
-        'PORT': '',  
-    }
+    
 }
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/var/tmp/django_cache',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
